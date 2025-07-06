@@ -1,0 +1,14 @@
+{
+  "backend": {
+    "build": "npm install",
+    "start": "npm start"
+  },
+  "frontend": {
+    "build": "npm install && npm run build",
+    "start": "serve -s dist"
+  },
+  "admin": {
+    "build": "npm install && npm run build",
+    "start": "serve -s dist"
+  }
+}

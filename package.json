@@ -1,0 +1,12 @@
+{
+  "name": "food-delivery-website",
+  "version": "1.0.0",
+  "description": "Food delivery web-app using the MERN technologys ",
+  "license": "ISC",
+  "author": "Rameshwar Sarkale",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
