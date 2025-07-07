@@ -30,18 +30,18 @@ app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
 
 // Serve frontend static files
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
-app.use(express.static(path.join(__dirname, '../admin/dist')));
+// app.use(express.static(path.join(__dirname, '../frontend/dist')));
+// app.use(express.static(path.join(__dirname, '../admin/dist')));
 
-// SPA fallback for frontend
-app.get('/app/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
-});
+// // SPA fallback for frontend
+// app.get('/app/*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
+// });
 
-// SPA fallback for admin
-app.get('/admin/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../admin/dist', 'index.html'));
-});
+// // SPA fallback for admin
+// app.get('/admin/*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../admin/dist', 'index.html'));
+// });
 
 app.listen(PORT, ()=>{
     console.log(`server is running on port ${PORT}`);

@@ -4,7 +4,7 @@ const authMiddleware = (req, res, next) => {
   // 1. Get token from Authorization header (standard practice)
   const authHeader = req.headers.authorization;
 
-  console.log("Auth Middleware: Authorization header received:", authHeader);
+  // console.log("Auth Middleware: Authorization header received:", authHeader);
 
   if (!authHeader) {
     console.log("Auth Middleware: Authorization header missing");
@@ -49,7 +49,7 @@ const authMiddleware = (req, res, next) => {
       // Add other relevant user data from token if needed
     };
     
-    console.log("Auth Middleware: Token verified for user ID:", decoded.id);
+    // console.log("Auth Middleware: Token verified for user ID:", decoded.id);
     next();
   } catch (err) {
     console.error("Auth Middleware: Token verification failed:", err.message, "Error name:", err.name, "Stack:", err.stack);

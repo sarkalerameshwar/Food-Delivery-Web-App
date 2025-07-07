@@ -6,7 +6,8 @@ import mongoose from "mongoose";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const placeOrder = async (req, res) => {
-  const frontend_url =  "http://localhost:5173";
+  const frontend_url =  "http://localhost:5173" || "http://localhost:5174"; // Update with your frontend URL
+  // const admin_url = "http://localhost:5174";
 
   try {
     const { items, amount, address } = req.body;

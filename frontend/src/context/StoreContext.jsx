@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const StoreContext = createContext(null);
 
@@ -47,10 +48,10 @@ const StoreContextProvider = (props) => {
 
   const addToCart = async (itemId) => {
     if (isTokenExpired(token)) {
-      alert("Session expired. Please login again.");
+      toast.error("Session expired. Please login again.");
       setToken("");
       localStorage.removeItem("token");
-      window.location.reload();
+      // window.location.reload();
       return;
     }
     if (!cartItems[itemId]) {
@@ -63,10 +64,10 @@ const StoreContextProvider = (props) => {
         await axios.post(`${url}/api/cart/add`, { itemId }, { headers: { Authorization: `Bearer ${token}` } });
       } catch (error) {
         if (error.response && error.response.status === 401) {
-          alert("Session expired or unauthorized. Please login again.");
+          toast.error("Session expired or unauthorized. Please login again.");
           setToken("");
           localStorage.removeItem("token");
-          window.location.reload();
+          // window.location.reload();
         }
       }
     }
@@ -74,10 +75,10 @@ const StoreContextProvider = (props) => {
 
   const removeFromCart = async (itemId) => {
     if (isTokenExpired(token)) {
-      alert("Session expired. Please login again.");
+      toast.error("Session expired. Please login again.");
       setToken("");
       localStorage.removeItem("token");
-      window.location.reload();
+      // window.location.reload();
       return;
     }
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
@@ -86,10 +87,10 @@ const StoreContextProvider = (props) => {
         await axios.post(`${url}/api/cart/remove`, { itemId }, { headers: { Authorization: `Bearer ${token}` } });
       } catch (error) {
         if (error.response && error.response.status === 401) {
-          alert("Session expired or unauthorized. Please login again.");
+          toast.error("Session expired or unauthorized. Please login again.");
           setToken("");
           localStorage.removeItem("token");
-          window.location.reload();
+          // window.location.reload();
         }
       }
     }
